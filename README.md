@@ -1,6 +1,4 @@
 
-
-```markdown
 # Sign2Vision
 
 A bidirectional web application designed to facilitate seamless communication between deaf/non-verbal individuals and hearing individuals. Built with a robust Python/Flask backend and an intuitive Neo-Brutalist frontend interface, the platform bridges communication gaps through two primary operational modes:
@@ -43,7 +41,7 @@ The application operates on a client-server model optimized for low-latency loca
    git clone [https://github.com/madaraf/Signe2Voice.git](https://github.com/madaraf/Signe2Voice.git)
    cd Signe2Voice
 
-```
+
 
 2. **Initialize a virtual environment:**
 ```bash
