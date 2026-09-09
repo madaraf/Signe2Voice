@@ -8,9 +8,11 @@ A bidirectional web application designed to facilitate seamless communication be
 
 ## Application Demo
 
-<div align="center">
-  <video src="demo.mp4" width="100%" controls autoplay loop></video>
-</div>
+
+
+https://github.com/user-attachments/assets/5260e25a-8e98-402e-8ed7-15c8016a8af6
+
+
 
 ## System Architecture
 
