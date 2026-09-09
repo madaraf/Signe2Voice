@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscription Plans - Voice & Sign Language App</title>
+    <link rel="stylesheet" href="subscription-style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Choose Your Plan</h1>
+        <p class="subtitle">
+          Unlock the power of voice-to-text and sign language detection
+        </p>
+      </header>
+
+      <div class="pricing-container">
+        <!-- Personal Plan -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <h2>Personal</h2>
+            <p class="plan-description">Perfect for individual users</p>
+          </div>
+
+          <div class="price-section">
+            <div class="price">
+              <span class="amount">1,000</span>
+              <span class="currency">DZD</span>
+            </div>
+            <p class="billing-period">per month</p>
+            <p class="yearly-option">or 10,000 DZD/year (Save 2 months!)</p>
+          </div>
+
+          <div class="features">
+            <h3>Features</h3>
+            <ul>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>1 User Access</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Voice-to-Text Conversion</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Sign Language Detection</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Sign Language to Audio</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Standard Support</span>
+              </li>
+            </ul>
+          </div>
+
+          <button
+            class="subscribe-btn"
+            onclick="selectPlan('personal', 'monthly')"
+          >
+            Subscribe Now
+          </button>
+        </div>
+
+        <!-- Family Plan (Recommended) -->
+        <div class="pricing-card recommended">
+          <div class="recommended-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              ></polygon>
+            </svg>
+            Recommended
+          </div>
+
+          <div class="card-header">
+            <h2>Family</h2>
+            <p class="plan-description">Best for families and small groups</p>
+          </div>
+
+          <div class="price-section">
+            <div class="price">
+              <span class="amount">3,500</span>
+              <span class="currency">DZD</span>
+            </div>
+            <p class="billing-period">per month</p>
+            <p class="yearly-option">or 35,000 DZD/year (Save 7,000 DZD!)</p>
+          </div>
+
+          <div class="features">
+            <h3>Features</h3>
+            <ul>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>5 User Access</strong></span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Voice-to-Text Conversion</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Sign Language Detection</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Sign Language to Audio</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Priority Support</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Shared Storage (50GB)</span>
+              </li>
+            </ul>
+          </div>
+
+          <button
+            class="subscribe-btn recommended-btn"
+            onclick="selectPlan('family', 'monthly')"
+          >
+            Subscribe Now
+          </button>
+        </div>
+
+        <!-- Business Plan -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <h2>Business</h2>
+            <p class="plan-description">Ideal for teams and organizations</p>
+          </div>
+
+          <div class="price-section">
+            <div class="price">
+              <span class="amount">Custom</span>
+            </div>
+            <p class="billing-period">based on team size</p>
+            <p class="yearly-option">Contact us for custom pricing</p>
+          </div>
+
+          <div class="features">
+            <h3>Features</h3>
+            <ul>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span><strong>Custom User Access</strong></span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Voice-to-Text Conversion</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Sign Language Detection</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Sign Language to Audio</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>24/7 Premium Support</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Unlimited Storage</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>API Access</span>
+              </li>
+              <li>
+                <svg
+                  class="check-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Advanced Analytics</span>
+              </li>
+            </ul>
+          </div>
+
+          <button
+            class="subscribe-btn"
+            onclick="selectPlan('business', 'custom')"
+          >
+            Contact Sales
+          </button>
+        </div>
+      </div>
+
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Can I switch plans later?</h3>
+            <p>Yes, you can upgrade or downgrade your plan at any time.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is there a free trial?</h3>
+            <p>We offer a 14-day free trial for all plans.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What payment methods do you accept?</h3>
+            <p>We accept credit cards, PayPal, and bank transfers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for plan selection confirmation -->
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Confirm Your Subscription</h2>
+        <p id="modalText"></p>
+        <div class="modal-buttons">
+          <button class="modal-btn confirm" onclick="confirmSubscription()">
+            Confirm
+          </button>
+          <button class="modal-btn cancel" onclick="closeModal()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="subscription-script.js"></script>
+  </body>
+</html>

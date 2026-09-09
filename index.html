@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voice2Sign — Real-time Translation</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <header class="app-header">
+        <div class="header-content">
+          <div class="logo-section">
+            <div class="logo-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <div class="header-text">
+              <h1>Voice2Sign</h1>
+              <p class="tagline">Real-time voice & sign language translation</p>
+            </div>
+          </div>
+          <a href="subscription.html" class="subscription-link">
+            <i class="fas fa-crown"></i>
+            <span>Upgrade</span>
+          </a>
+        </div>
+
+        <!-- Language Badge -->
+        <div class="language-badge">
+          <i class="fas fa-globe"></i>
+          <span>Arabic (Algeria) — ar-DZ</span>
+        </div>
+      </header>
+
+      <!-- Mode Toggle -->
+      <div class="mode-toggle">
+        <button id="voiceBtn" class="mode-btn active" onclick="showVoice()">
+          <i class="fas fa-microphone-alt"></i>
+          <span>Voice Mode</span>
+        </button>
+        <button id="signBtn" class="mode-btn" onclick="showSign()">
+          <i class="fas fa-hands"></i>
+          <span>Sign Mode</span>
+        </button>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="main-grid">
+        <!-- VOICE SECTION -->
+        <div id="voiceSection" class="section-card active-section">
+          <div class="card-header">
+            <h2><i class="fas fa-microphone"></i> Voice Recognition</h2>
+            <span class="status-badge" id="voiceStatus">Ready</span>
+          </div>
+
+          <div class="controls-row">
+            <button id="startVoiceBtn" class="action-btn primary">
+              <i class="fas fa-microphone"></i>
+              <span>Start Listening</span>
+            </button>
+            <button id="stopVoiceBtn" class="action-btn danger" disabled>
+              <i class="fas fa-stop"></i>
+              <span>Stop</span>
+            </button>
+          </div>
+
+          <!-- Audio Visualizer -->
+          <div class="audio-visualizer">
+            <div class="visualizer-bars">
+              <div class="bar" style="--delay: 0s"></div>
+              <div class="bar" style="--delay: 0.1s"></div>
+              <div class="bar" style="--delay: 0.2s"></div>
+              <div class="bar" style="--delay: 0.3s"></div>
+              <div class="bar" style="--delay: 0.4s"></div>
+              <div class="bar" style="--delay: 0.5s"></div>
+              <div class="bar" style="--delay: 0.6s"></div>
+              <div class="bar" style="--delay: 0.7s"></div>
+            </div>
+            <div class="audio-level">
+              <div id="pitchBar" class="level-fill"></div>
+            </div>
+            <div class="audio-info">
+              <i class="fas fa-volume-up"></i>
+              <span id="pitchValue">0 dB</span>
+            </div>
+          </div>
+
+          <!-- Voice Output -->
+          <div class="output-card">
+            <div class="output-header">
+              <h3>Speech Output</h3>
+              <button
+                class="icon-btn"
+                onclick="clearVoiceTranscript()"
+                title="Clear"
+              >
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+            <div id="voiceTranscript" class="transcript-box">
+              <p class="placeholder-text">
+                <i class="fas fa-info-circle"></i>
+                Press "Start Listening" and speak in Arabic
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIGN SECTION -->
+        <div id="signSection" class="section-card">
+          <div class="card-header">
+            <h2><i class="fas fa-video"></i> Sign Language Detection</h2>
+            <span class="status-badge" id="signStatus">Ready</span>
+          </div>
+
+          <div class="controls-row">
+            <button id="startSignBtn" class="action-btn primary">
+              <i class="fas fa-video"></i>
+              <span>Start Camera</span>
+            </button>
+            <button id="captureSignBtn" class="action-btn secondary" disabled>
+              <i class="fas fa-camera"></i>
+              <span>Capture</span>
+            </button>
+            <button id="stopSignBtn" class="action-btn danger" disabled>
+              <i class="fas fa-times"></i>
+              <span>Stop</span>
+            </button>
+          </div>
+
+          <!-- Video Preview -->
+          <div class="video-container">
+            <video id="signVideo" autoplay playsinline muted></video>
+            <canvas id="overlayCanvas"></canvas>
+            <div class="video-overlay-info">
+              <div class="camera-indicator">
+                <div class="rec-dot"></div>
+                <span>LIVE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sign Output -->
+          <div class="output-card">
+            <div id="signOutput" class="sign-instructions">
+              <i class="fas fa-hand-paper"></i>
+              <p>
+                Supported gestures: HELLO, STOP, YES, NO, PEACE, FIST, ONE-FIVE,
+                CALL ME, OK
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESULTS PANEL -->
+        <div class="results-panel">
+          <!-- Detection Results -->
+          <div class="result-card">
+            <div class="result-header">
+              <i class="fas fa-bullseye"></i>
+              <h3>Last Detected</h3>
+            </div>
+            <div id="detectedLabel" class="detected-result">—</div>
+            <div class="detection-animation">
+              <div class="pulse-ring"></div>
+            </div>
+          </div>
+
+          <!-- Live Transcript -->
+          <div class="result-card">
+            <div class="result-header">
+              <i class="fas fa-align-left"></i>
+              <h3>Live Transcript</h3>
+              <button
+                class="icon-btn"
+                onclick="clearSharedText()"
+                title="Clear"
+              >
+                <i class="fas fa-eraser"></i>
+              </button>
+            </div>
+            <div id="sharedText" class="transcript-display">
+              <p class="placeholder-text">No content yet...</p>
+            </div>
+          </div>
+
+          <!-- AI Analysis (Gemini) -->
+          <div class="result-card">
+            <div class="result-header">
+              <i class="fas fa-comments"></i>
+              <h3>ماذا تقول؟</h3>
+              <span
+                style="font-size: 0.75rem; opacity: 0.7; font-weight: normal"
+                >AI Prediction</span
+              >
+            </div>
+            <div id="geminiAnalysis" class="transcript-display">
+              <p class="placeholder-text">
+                <i class="fas fa-comments"></i>
+                قم بعمل إشارات وسأخبرك ماذا تحاول أن تقول...
+              </p>
+            </div>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="stats-card">
+            <div class="stat-item">
+              <i class="fas fa-clock"></i>
+              <div class="stat-info">
+                <span class="stat-value" id="sessionTime">00:00</span>
+                <span class="stat-label">Session Time</span>
+              </div>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-check-circle"></i>
+              <div class="stat-info">
+                <span class="stat-value" id="detectionCount">0</span>
+                <span class="stat-label">Detections</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <div class="footer-content">
+          <p>
+            <i class="fas fa-code"></i>
+            Built with MediaPipe Hands + Web Speech API + WebAudio
+          </p>
+          <div class="footer-links">
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Help</a>
+            <a href="subscription.html" class="footer-link">Pricing</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- MediaPipe (Hands + Camera Utils) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
