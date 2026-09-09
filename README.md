@@ -11,7 +11,7 @@ A bidirectional web application designed to facilitate seamless communication be
 ## Application Demo
 
 <div align="center">
-  <video src="1122.mp4" width="100%" controls autoplay loop></video>
+  <video src="demo.mp4" width="100%" controls autoplay loop></video>
 </div>
 
 ## System Architecture
