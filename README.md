@@ -37,6 +37,7 @@ The application operates on a client-server model optimized for low-latency loca
 * Git
 
 ### Installation Steps
+To run this project locally, you will need a Google Gemini API key.
 
 1. **Clone the repository:**
    ```bash
@@ -55,20 +56,30 @@ source venv/bin/activate
 
 3. **Install dependencies:**
 ```bash
-pip install flask
+pip install flask python-dotenv
+npm install
 # Add any additional machine learning libraries required (e.g., mediapipe, opencv-python)
 
 ```
+4. **Set up environment variables:**
+   * Create a new file named `.env` in the root directory of the project.
+   * Copy the contents of `.env.example` into your new `.env` file.
+   * Get an API key from [Google AI Studio](https://aistudio.google.com/).
+   * Replace `your_google_api_key_here` in the `.env` file with your actual API key.
 
+   Your `.env` file should look like this:
+   ```env
+   GOOGLE_API_KEY="AIzaSy..."
+   ```
 
-4. **Run the local server:**
+5. **Run the local server:**
 ```bash
 python3 server.py
 
 ```
 
 
-5. **Access the application:**
+6. **Access the application:**
 * **Local Machine:** `http://127.0.0.1:5000`
 * **Mobile/LAN Device:** The terminal will output your dynamic local IPv4 address (e.g., `http://192.168.X.X:5000`).
 
